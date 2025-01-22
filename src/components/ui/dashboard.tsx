@@ -1,10 +1,12 @@
 import { Button } from "./button"
+import { Itenaries } from "./itenaries"
 
 export const Dasboard = ()=> {
     return (
         <>
         <div className="p-4 bg-white flex flex-col gap-10">
             <ItenaryItems />
+            <Itenaries />
         </div>
         </>
     )
@@ -12,7 +14,6 @@ export const Dasboard = ()=> {
 
 
 const ItenaryItems = ()=>{
-
     return (
         <>
         <div className="flex flex-col gap-4">
@@ -26,8 +27,8 @@ const ItenaryItems = ()=>{
                 <Hotels />
                 <Flights />
             </div>
-        </div>
 
+        </div>
         </>
     )
 
