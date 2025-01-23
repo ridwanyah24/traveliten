@@ -3,8 +3,7 @@ import { Provider } from "react-redux";
 import React, { useMemo, useRef } from "react";
 import { persistor, store } from "@/store/store";
 import { PersistGate } from "redux-persist/integration/react";
-// import { PersistGate } from "redux-persist/integration/react";
-// import { AppStore, makeStore } from "@/store/store";
+
 
 export const ColorModeContext = React.createContext({
   toggleColorMode: () => {},

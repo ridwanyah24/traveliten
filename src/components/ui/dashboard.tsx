@@ -1,5 +1,7 @@
+'use client'
+import { useRouter } from "next/navigation"
 import { Button } from "./button"
-import { Itenaries } from "./itenaries"
+import { Itenaries } from "./itineraies"
 
 export const Dasboard = ()=> {
     return (
@@ -35,25 +37,27 @@ const ItenaryItems = ()=>{
 }
 
 const Activities = () => {
+    const router = useRouter();
     return(
         <div className="flex flex-col gap-5 bg-[#000031] text-[#ffff] p-4 rounded-md w-[270px]">
             <span className="flex flex-col gap-2">
                 <p className="text-[16px] font-semibold">Activities</p>
                 <p className="text-[14px]">Build, personalize, and optimize your itineraries with our trip planner.</p>
             </span>
-            <Button variant={"default"} className="w-[242px] font-semibold mx-auto h-[46px]">Add Activities</Button>
+            <Button variant={"default"} className="w-[242px] font-semibold mx-auto h-[46px]" onClick={()=>router.push("/addAttraction")} >Add Activities</Button>
         </div>
     )
 }
 
 const Hotels = () => {
+    const router = useRouter();
     return (
         <div className="flex flex-col gap-5 bg-[#E7F0FF] text-[#1D2433] p-4 rounded-md w-[270px]">
             <span className="flex flex-col gap-2">
                 <p className="text-[16px] text-[#000000] font-semibold">Hotels</p>
                 <p className="text-[14px]">Build, personalize, and optimize your itineraries with our trip planner.</p>
             </span>
-            <Button variant={"default"} className="w-[242px] font-semibold mx-auto h-[46px] text-[#ffff]">Add Hotels</Button>
+            <Button variant={"default"} className="w-[242px] font-semibold mx-auto h-[46px] text-[#ffff]" onClick={()=>router.push("/addHotelPage")}>Add Hotels</Button>
         </div>
     )
 }
@@ -66,7 +70,7 @@ const Flights = () => {
                 <p className="text-[16px] font-semibold">Hotels</p>
                 <p className="text-[14px]">Build, personalize, and optimize your itineraries with our trip planner.</p>
             </span>
-            <Button variant={"secondary"} className="w-[242px] font-semibold mx-auto h-[46px] text-[#0D6EFD]">Add Hotels</Button>
+            <Button variant={"secondary"} className="w-[242px] font-semibold mx-auto h-[46px] text-[#0D6EFD]">Add Flight</Button>
         </div>
         </>
     )
