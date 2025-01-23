@@ -1,4 +1,4 @@
-import { AddHotelPage } from "@/components/filterHotel";
+import { AddHotelPage } from "@/components/ui/filterHotel";
 
 
 export default function Page(){

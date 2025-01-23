@@ -1,5 +1,5 @@
 import { ActivityItineraies } from "./activityIten"
-import { FlightItenary } from "./flightIten"
+import { FlightItineraies } from "./flightIten"
 import { HotelItineraies } from "./hotelIten"
 
 export const Itenaries = () => {
@@ -10,7 +10,7 @@ export const Itenaries = () => {
                 <p className="text-[#1D2433] font-semibold text-lg">Top Itineraies</p>
                 <p className="text-sm ">Your trip itineraries are placed here</p>
             </span>
-            <FlightItenary />
+            <FlightItineraies />
             <HotelItineraies />
             <ActivityItineraies />
         </div>

@@ -117,5 +117,40 @@ interface PriceBreakdown {
       }[];
     };
   };
+
+  type DistanceToCity = {
+    value: number;
+    unit: string;
+  };
+  
+  type LocationData = {
+    id: string;
+    type: string;
+    name: string;
+    code: string;
+    city?: string;
+    cityName: string;
+    regionName?: string;
+    region?: string;
+    country: string;
+    countryName: string;
+    countryNameShort?: string;
+    photoUri: string;
+    distanceToCity?: DistanceToCity;
+    parent?: string;
+  };
+  
+  export type LocationResponse = {
+    status: boolean;
+    message: string;
+    timestamp: number;
+    data: LocationData[];
+  };
+
+  
+  
+
+  
+ 
   
   

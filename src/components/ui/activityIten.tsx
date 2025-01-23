@@ -39,34 +39,69 @@ export const ActivityItineraies = () => {
                 </div>
             ) : (
                 <>
-                {activities.map((activity, index) => (
-                    <div key={index} className="bg-white mb-10 rounded-md flex justify-between gap-2">
-                        <section className="flex">
-                            <Carousel className="w-[200px] p-2 flex">
-                            <CarouselContent>
-                                <CarouselItem key={index}>
-                                    <img
-                                    src={activity.primaryPhoto.small}
-                                    alt="Carousel Slide 2"
-                                    className=" w-[200px] h-[200px] object-cover"
-                                    />
-                                </CarouselItem>
-                            </CarouselContent>
-                            </Carousel>
-                            <div className="flex flex-col p-2 flex-end">
-                                <p className="text-[20px] font-semibold">{activity.name}</p>
-                                <p className="w-[500px] text-sm mb-5">{activity.shortDescription}</p>
-
-                                <span className="mt-10 flex text-[20px] gap-2 font-semibold">
-                                    <p>{activity.representativePrice.currency}</p>
-                                    <p>{activity.representativePrice.chargeAmount.toFixed(2)}</p>
+                {activities?.map((activity, index) =>(
+                <div className="flex justify-between mb-10 bg-white w-full">
+                    <img
+                    src={activity?.primaryPhoto.small}
+                    alt="Carousel Slide 2"
+                    className=" w-[200px] min-h-full object-cover"
+                    />
+                    <div className="flex flex-col mb-2 w-full">
+                        <div className="flex justify-between border-b border-gray-200 w-full pr-10 "> 
+                        {/* Activity Details */}
+                            <div className="flex flex-col gap-2 items-start p-2">
+                                <p className="text-[20px] font-semibold ">{activity?.name}</p>
+                                <p className="text-[16px] text-[#1D2433]">{activity?.shortDescription}</p>
+                                <span className="flex gap-2 items-center ">
+                                    <p className="flex gap-1 items-center">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M9 4.21875C8.38811 4.21875 7.78997 4.4002 7.2812 4.74014C6.77244 5.08009 6.37591 5.56326 6.14175 6.12857C5.90759 6.69388 5.84632 7.31593 5.9657 7.91606C6.08507 8.51619 6.37972 9.06744 6.81239 9.50011C7.24506 9.93278 7.79631 10.2274 8.39644 10.3468C8.99657 10.4662 9.61862 10.4049 10.1839 10.1708C10.7492 9.93659 11.2324 9.54006 11.5724 9.03129C11.9123 8.52253 12.0938 7.92439 12.0938 7.3125C12.0928 6.49227 11.7666 5.7059 11.1866 5.12592C10.6066 4.54593 9.82023 4.21968 9 4.21875ZM9 8.71875C8.72187 8.71875 8.44999 8.63627 8.21873 8.48175C7.98747 8.32723 7.80723 8.10761 7.70079 7.85065C7.59436 7.59369 7.56651 7.31094 7.62077 7.03815C7.67503 6.76537 7.80896 6.5148 8.00563 6.31813C8.2023 6.12146 8.45287 5.98753 8.72565 5.93327C8.99844 5.87901 9.28119 5.90686 9.53815 6.01329C9.79511 6.11973 10.0147 6.29997 10.1693 6.53123C10.3238 6.76249 10.4062 7.03437 10.4062 7.3125C10.4062 7.68546 10.2581 8.04315 9.99437 8.30687C9.73065 8.57059 9.37296 8.71875 9 8.71875ZM9 0.84375C7.28495 0.845611 5.64068 1.52774 4.42796 2.74046C3.21524 3.95318 2.53311 5.59745 2.53125 7.3125C2.53125 12.7519 8.27156 16.8328 8.51625 17.0037C8.65805 17.1029 8.82693 17.1561 9 17.1561C9.17307 17.1561 9.34195 17.1029 9.48375 17.0037C10.571 16.2024 11.5657 15.2827 12.4495 14.2615C14.4246 11.9932 15.4688 9.58852 15.4688 7.3125C15.4669 5.59745 14.7848 3.95318 13.572 2.74046C12.3593 1.52774 10.715 0.845611 9 0.84375ZM11.2008 13.128C10.5304 13.8981 9.79398 14.6082 9 15.2501C8.20602 14.6082 7.46962 13.8981 6.79922 13.128C5.625 11.7682 4.21875 9.65461 4.21875 7.3125C4.21875 6.04443 4.72249 4.8283 5.61915 3.93165C6.5158 3.03499 7.73193 2.53125 9 2.53125C10.2681 2.53125 11.4842 3.03499 12.3809 3.93165C13.2775 4.8283 13.7812 6.04443 13.7812 7.3125C13.7812 9.65461 12.375 11.7682 11.2008 13.128Z" fill="#0D6EFD"/>
+                                        </svg> 
+                                        <p className="text-[#0D6EFD] ">Directions</p>
+                                    </p>
+                                    <p className="flex gap-1 items-center">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M16.4884 8.0422L13.3173 10.8097L14.2672 14.93C14.3175 15.1454 14.3031 15.3708 14.226 15.5781C14.1488 15.7854 14.0123 15.9654 13.8334 16.0955C13.6545 16.2256 13.4413 16.3001 13.2203 16.3096C12.9993 16.3192 12.7804 16.2634 12.591 16.1492L8.9973 13.9695L5.41136 16.1492C5.22192 16.2634 5.00303 16.3192 4.78205 16.3096C4.56107 16.3001 4.34781 16.2256 4.16894 16.0955C3.99006 15.9654 3.85351 15.7854 3.77635 15.5781C3.69919 15.3708 3.68485 15.1454 3.73511 14.93L4.68363 10.8139L1.51183 8.0422C1.34407 7.89752 1.22276 7.70652 1.16312 7.49317C1.10348 7.27981 1.10815 7.0536 1.17656 6.84289C1.24497 6.63218 1.37407 6.44636 1.54766 6.30873C1.72126 6.1711 1.93162 6.08779 2.15238 6.06923L6.33316 5.70712L7.96511 1.81463C8.05034 1.61038 8.19409 1.43591 8.37826 1.3132C8.56243 1.19048 8.7788 1.125 9.00011 1.125C9.22143 1.125 9.43779 1.19048 9.62197 1.3132C9.80614 1.43591 9.94989 1.61038 10.0351 1.81463L11.672 5.70712L15.8514 6.06923C16.0721 6.08779 16.2825 6.1711 16.4561 6.30873C16.6297 6.44636 16.7588 6.63218 16.8272 6.84289C16.8956 7.0536 16.9003 7.27981 16.8406 7.49317C16.781 7.70652 16.6597 7.89752 16.4919 8.0422H16.4884Z" fill="#F4B93E"/>
+                                        </svg>
+                                        <p>4.5 (436)</p>
+                                    </p>
+                                    <p className="flex items-center gap-1">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M9 1.40625C7.4981 1.40625 6.02993 1.85162 4.78114 2.68603C3.53236 3.52044 2.55905 4.70642 1.98429 6.094C1.40954 7.48157 1.25916 9.00842 1.55217 10.4815C1.84517 11.9545 2.56841 13.3076 3.63041 14.3696C4.69242 15.4316 6.04549 16.1548 7.51854 16.4478C8.99158 16.7408 10.5184 16.5905 11.906 16.0157C13.2936 15.441 14.4796 14.4676 15.314 13.2189C16.1484 11.9701 16.5938 10.5019 16.5938 9C16.5915 6.9867 15.7907 5.0565 14.3671 3.63287C12.9435 2.20925 11.0133 1.40848 9 1.40625ZM9 14.9062C7.83186 14.9062 6.68994 14.5599 5.71867 13.9109C4.74739 13.2619 3.99037 12.3394 3.54334 11.2602C3.09631 10.181 2.97935 8.99345 3.20724 7.84775C3.43513 6.70205 3.99765 5.64965 4.82365 4.82365C5.64966 3.99765 6.70205 3.43513 7.84775 3.20724C8.99345 2.97934 10.181 3.09631 11.2602 3.54334C12.3395 3.99037 13.2619 4.74739 13.9109 5.71866C14.5599 6.68994 14.9063 7.83185 14.9063 9C14.9046 10.5659 14.2818 12.0672 13.1745 13.1745C12.0672 14.2818 10.5659 14.9046 9 14.9062ZM13.7813 9C13.7813 9.22378 13.6924 9.43839 13.5341 9.59662C13.3759 9.75486 13.1613 9.84375 12.9375 9.84375H9C8.77623 9.84375 8.56162 9.75486 8.40338 9.59662C8.24515 9.43839 8.15625 9.22378 8.15625 9V5.0625C8.15625 4.83872 8.24515 4.62411 8.40338 4.46588C8.56162 4.30764 8.77623 4.21875 9 4.21875C9.22378 4.21875 9.43839 4.30764 9.59662 4.46588C9.75486 4.62411 9.84375 4.83872 9.84375 5.0625V8.15625H12.9375C13.1613 8.15625 13.3759 8.24514 13.5341 8.40338C13.6924 8.56161 13.7813 8.77622 13.7813 9Z" fill="#344054"/>
+                                        </svg>
+                                        <p>1 hour</p>
+                                    </p>
+                                </span>
+                            </div>    
+                            {/* Price  */}
+                            <div className="flex flex-col items-center ">
+                                <span className="flex flex-col gap-2 items-center">
+                                    <span className="flex gap-2 items-center">
+                                        <p className="text-[#1D2433] text-[28px] font-semibold">{activity?.representativePrice?.currency}</p>
+                                        <p className="text-[#1D2433] text-[28px] font-semibold">{activity?.representativePrice?.chargeAmount}</p>
+                                    </span>
+                                    <p>10:30am on Mar 19</p>
                                 </span>
                             </div>
-                        </section>
-                        <div className="w-[50px] min-h-full cursor-pointer flex justify-center items-center bg-[#FBEAE9]" onClick={()=>{handleDeleteActivity(index)}}>
-                            x
+                        </div>
+                        {/* section 2 */}
+                        <div className="p-4 w-full flex items-center text-[#647995] border-b border-gray-200 gap-2">
+                            <p>What&apos;s included</p>
+                            <p className="text-[#647995]">Admission to the Empire State Building <span className="text-[#0D6EFD] font-semibold"> See more</span></p>
+                            
+                        </div>
+                        <div className="p-4 flex justify-between items-center w-full">
+                            <span className="flex gap-10 items-center font-semibold w-full">
+                                <p className="text-sm text-[#0D6EFD] ">Activity details</p>
+                                <p className="text-sm text-[#0D6EFD]">Price details</p>
+                            </span>
+                            <p className="text-sm text-[#0D6EFD] font-semibold text-end w-full">Edit Activity</p>
                         </div>
                     </div>
+                    <div className="w-[50px] min-h-full cursor-pointer flex justify-center items-center bg-[#FBEAE9]" onClick={()=>{handleDeleteActivity(index)}}>
+                        x
+                    </div>
+                </div>
                 ))}
                 </>
             )}

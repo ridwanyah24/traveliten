@@ -1,5 +1,5 @@
 import { RootState } from "@/store/store";
-import { AttractionsSearchResponse, DestinationResponse } from "@/types/types";
+import { AttractionsSearchResponse, DestinationResponse, LocationResponse } from "@/types/types";
 import {
     createApi,
     fetchBaseQuery,
@@ -7,10 +7,11 @@ import {
 
 
 const baseQuery = fetchBaseQuery({
-    baseUrl: "https://booking-com15.p.rapidapi.com/api/v1",
+    // baseUrl: "https://booking-com15.p.rapidapi.com/api/v1",
+    baseUrl : "https://booking-com15.p.rapidapi.com/api/v1",
     prepareHeaders: (headers, { getState }) => {
         // Set the required headers
-        headers.set("x-rapidapi-key", "91c600e9damsh2952301969a78ccp105f47jsn637b7ae58a58");
+        headers.set("x-rapidapi-key", "0c26c71a5dmsh0e01c2a18c2b28fp1e0e0fjsn65d2a8970189");
         headers.set("x-rapidapi-host", "booking-com15.p.rapidapi.com");
 
         // const token = getState()?.auth?.token;
@@ -21,7 +22,6 @@ const baseQuery = fetchBaseQuery({
         return headers;
     },
 });
-
 
 interface GetHotelsQueryParams {
     dest_id: string;
@@ -68,6 +68,21 @@ export const request = createApi({
                 }
             })
         }),
+        getFlightLocation: builder.query<LocationResponse, void>({
+            query: ()=>({
+                url: `/flights/searchDestination?query=new`
+            })
+        }),
+        getFlights: builder.query<any, any>({
+            query:({fromId, toId, departDate})=>({
+                url: `/flights/searchFlights`,
+                params: {
+                    fromId,
+                    toId,
+                    departDate,
+                }
+            })
+        })
     }),
 });
 
@@ -76,5 +91,7 @@ export const {
     useGetDestinationQuery,
     useGetHotelsQuery,
     useGetAttractionLocationQuery,
+    useGetFlightLocationQuery,
+    useGetFlightsQuery,
     useGetAttractionQuery,
 } = request

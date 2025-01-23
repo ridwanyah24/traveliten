@@ -5,11 +5,13 @@ import { setupListeners } from "@reduxjs/toolkit/query";
 import {request} from "@/slice/requestSlice"
 import hotelReducer  from "@/slice/hotelSlice"
 import activityReducer from "@/slice/destinationSlice"
+import flightReducer from "@/slice/flightOfferSlice"
 
   const reducers = combineReducers({
     [request.reducerPath]: request.reducer,
     hotel: hotelReducer,
     activity: activityReducer,
+    flight: flightReducer,
    
   });
   
@@ -17,7 +19,7 @@ import activityReducer from "@/slice/destinationSlice"
   const persistConfig = {
     key: "root",
     storage,
-    whiteList: ["hotel", "activity"],
+    whiteList: ["hotel", "activity", "flight"],
     blacklist: [request.reducerPath], // Prevent persisting the request slice
   };
   
