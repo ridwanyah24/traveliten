@@ -56,12 +56,15 @@ const sideItems = [
 ]
 
 export const Dasboard = ()=> {
+    const router = useRouter();
     return (
         <div className="flex justify-between p-4">
             <div className="flex flex-col gap-10  w-[300px] max-h-screen h-[800px] bg-white">
                 <div>
                     {sideItems.map((item, index)=>(
-                        <span  key={index} className="flex gap-4 items-center p-4 cursor-pointer rounde-lg hover:bg-[#E7F0FF]">
+                        <span  key={index} className="flex gap-4 items-center p-4 cursor-pointer rounde-lg hover:bg-[#E7F0FF]"
+                                onClick={()=>{item.name === "Activities"? router.push("/addAttraction") : item.name === "Hotels" ? router.push("/addHotelPage") : item.name === "Flights" ? router.push("/addFlightsPage") : ""}}
+                        >
                             {item.svg}
                             {item.name}
                         </span>
