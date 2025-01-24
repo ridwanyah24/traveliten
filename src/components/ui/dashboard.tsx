@@ -58,12 +58,12 @@ const sideItems = [
 export const Dasboard = ()=> {
     const router = useRouter();
     return (
-        <div className="flex justify-between p-4">
-            <div className="flex flex-col gap-10  w-[300px] max-h-screen h-[800px] bg-white">
+        <div className="flex justify-between lg:p-4 w-full">
+            <div className="flex flex-col lg:block max-md:hidden gap-10  w-[300px] max-h-screen h-[800px] bg-white">
                 <div>
                     {sideItems.map((item, index)=>(
                         <span  key={index} className="flex gap-4 items-center p-4 cursor-pointer rounde-lg hover:bg-[#E7F0FF]"
-                                onClick={()=>{item.name === "Activities"? router.push("/addAttraction") : item.name === "Hotels" ? router.push("/addHotelPage") : item.name === "Flights" ? router.push("/addFlightsPage") : ""}}
+                            onClick={()=>{item.name === "Activities"? router.push("/addAttraction") : item.name === "Hotels" ? router.push("/addHotelPage") : item.name === "Flights" ? router.push("/addFlightsPage") : ""}}
                         >
                             {item.svg}
                             {item.name}
@@ -81,7 +81,7 @@ export const Dasboard = ()=> {
             </div>
 
             <div className=" bg-white flex w-fit flex-col gap-10">
-                <svg width="1412" height="200" viewBox="0 0 1412 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="1412" className="lg:w-full max-md:hidden" height="200" viewBox="0 0 1412 200" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_190_10353)">
                     <rect width="1412" height="200" rx="4" fill="#CFE9FF"/>
                     <path d="M458.889 82.3273H542.307C542.307 82.3273 545.28 82.3273 543.346 79.6664C540.415 75.618 536.271 65.8695 525.555 66.5542C513.296 67.3471 510.677 71.4976 510.677 71.6117C510.677 71.6117 508.809 62.3677 498.376 63.0344C487.942 63.7011 485.594 70.945 485.594 70.945C485.594 70.945 481.311 66.9627 473.947 68.9748C469.851 70.098 465.844 73.774 466.607 77.2398C463.184 76.0084 463.364 75.5459 459.718 76.3628C451.867 78.1167 458.889 82.3273 458.889 82.3273Z" fill="#F9FAFB"/>
@@ -143,8 +143,7 @@ export const Dasboard = ()=> {
                     </clipPath>
                     </defs>
                 </svg>
-                <div className="flex flex-col gap-10 p-4">
-
+                <div className="flex flex-col gap-10 p-4 ">
                     <ItenaryItems />
                     <Itenaries />
                 </div>
@@ -163,7 +162,7 @@ const ItenaryItems = ()=>{
                 <p>New York, United States of America </p> |
                 <p>Solo Trip</p>
             </span>
-            <div className="flex gap-10 items-center">
+            <div className="flex lg:flex-row max-md:flex-col gap-10 items-center">
                 <Activities />
                 <Hotels />
                 <Flights />
